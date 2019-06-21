@@ -22,6 +22,9 @@ namespace WindowsApplication
         public MyCalc()
         {
             InitializeComponent();
+
+            //output.SelectAll();
+            //output.SelectionAlignment = HorizontalAlignment.Right;
         }
         private void button_Click(object sender, EventArgs e)
         {

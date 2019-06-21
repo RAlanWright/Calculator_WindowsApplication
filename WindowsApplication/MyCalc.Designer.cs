@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.output = new System.Windows.Forms.RichTextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -46,16 +45,8 @@
             this.buttonMin = new System.Windows.Forms.Button();
             this.buttonEquals = new System.Windows.Forms.Button();
             this.buttonAdd = new System.Windows.Forms.Button();
+            this.output = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
-            // 
-            // output
-            // 
-            this.output.Location = new System.Drawing.Point(12, 12);
-            this.output.Name = "output";
-            this.output.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.output.Size = new System.Drawing.Size(274, 175);
-            this.output.TabIndex = 0;
-            this.output.Text = "0";
             // 
             // button1
             // 
@@ -227,11 +218,23 @@
             this.buttonAdd.UseVisualStyleBackColor = true;
             this.buttonAdd.Click += new System.EventHandler(this.button_Click);
             // 
+            // output
+            // 
+            this.output.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.output.Location = new System.Drawing.Point(12, 12);
+            this.output.Multiline = true;
+            this.output.Name = "output";
+            this.output.Size = new System.Drawing.Size(274, 186);
+            this.output.TabIndex = 20;
+            this.output.Text = "0";
+            this.output.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
             // MyCalc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(297, 400);
+            this.Controls.Add(this.output);
             this.Controls.Add(this.buttonAdd);
             this.Controls.Add(this.buttonEquals);
             this.Controls.Add(this.buttonMin);
@@ -249,16 +252,14 @@
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.output);
             this.Name = "MyCalc";
             this.Text = "My Calc";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.RichTextBox output;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
@@ -276,6 +277,7 @@
         private System.Windows.Forms.Button buttonMin;
         private System.Windows.Forms.Button buttonEquals;
         private System.Windows.Forms.Button buttonAdd;
+        private System.Windows.Forms.TextBox output;
     }
 }
 
