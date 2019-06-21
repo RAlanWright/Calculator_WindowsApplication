@@ -17,14 +17,10 @@ namespace WindowsApplication
 
         Queue<string> Calcs = new Queue<string>();
         string NumString = "";  // Empty value to catch if an operator was used first
-
         double total = 0;
         public MyCalc()
         {
             InitializeComponent();
-
-            //output.SelectAll();
-            //output.SelectionAlignment = HorizontalAlignment.Right;
         }
         private void button_Click(object sender, EventArgs e)
         {
@@ -198,7 +194,84 @@ namespace WindowsApplication
 
         public void computeTotal()
         {
+            string[] calcString = new string[Calcs.Count];
+            Calcs.CopyTo(calcString, 0);
+            double val1 = 0;
+            double val2 = 0;
 
+            bool firstOperation = true;
+
+            // Process the string
+            for (int i = 0; i < Calcs.Count; i++)
+            {
+                switch (calcString[i])
+                {
+                    case "*":
+                        val1 = Convert.ToDouble(calcString[i - 1]);
+                        val2 = Convert.ToDouble(calcString[i + 1]);
+                        if (firstOperation == true)
+                        {
+                            total = val1 * val2;
+                            firstOperation = false;
+                        }
+                        else
+                        {
+                            total *= val2;
+                        }
+                        break;
+
+                    case "/":
+                        val1 = Convert.ToDouble(calcString[i - 1]);
+                        val2 = Convert.ToDouble(calcString[i + 1]);
+                        if (firstOperation == true)
+                        {
+                            total = val1 / val2;
+                            firstOperation = false;
+                        }
+                        else
+                        {
+                            total /= val2;
+                        }
+                        break;
+
+                    case "+":
+                        val1 = Convert.ToDouble(calcString[i - 1]);
+                        val2 = Convert.ToDouble(calcString[i + 1]);
+                        if (firstOperation == true)
+                        {
+                            total = val1 + val2;
+                            firstOperation = false;
+                        }
+                        else
+                        {
+                            total += val2;
+                        }
+                        break;
+
+                    case "-":
+                        val1 = Convert.ToDouble(calcString[i - 1]);
+                        val2 = Convert.ToDouble(calcString[i + 1]);
+                        if (firstOperation == true)
+                        {
+                            total = val1 - val2;
+                            firstOperation = false;
+                        }
+                        else
+                        {
+                            total -= val2;
+                        }
+                        break;
+
+                    default:
+                        break;
+                }
+            }
+
+            output.Text += "" + total;
+            totalFlag = true;
+            Calcs.Clear();
+            Array.Clear(calcString, 0, calcString.Length);
+            total = 0;
         }
     }
 }
