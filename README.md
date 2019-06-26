@@ -9,4 +9,4 @@ Currently the calculator only works with button click events.
 Includes a clear button to clear the screen.
 
 
-![Alt text](/Screenshot/calculator.png?raw=true "Optional Title")
+![Screenshot](https://raw.github.com/RAlanWright/Calculator_WindowsApplication/Screenshot/calculator.png?raw=true "Optional Title")
